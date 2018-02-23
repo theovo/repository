@@ -1,6 +1,4 @@
 # repository
 My Github Repository
 
-Hello World.
-
-This is my first repository.
+This "readme-edit" file is actually a branch of master. It is a version of my repository that has yet to be published.
