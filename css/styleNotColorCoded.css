@@ -1,0 +1,505 @@
+/* Allows your set container width to remain fixed despite width added to margin, border, padding . */
+
+* {
+  box-sizing: border-box;
+}
+
+ /* deepest possible browser support using @font-face
+    https://css-tricks.com/snippets/css/using-font-face/
+    
+    important! place "fonts folder" inside "css folder"
+ */
+ 
+/************************* FONTS *************************/
+ 
+  @font-face {
+      font-family: 'Hurme Geometric Sans 4 Bold'; !important
+      src: url(fonts/HurmeGeometricSans4-Bold.eot) format('embedded-opentype'); /* IE9 Compat Modes */
+      src: url(fonts/HurmeGeometricSans4-Bold.otf) format('otf'),
+           url(fonts/HurmeGeometricSans4-Bold.ttf) format('truetype'), /* Safari, Android, iOS */			
+           url(fonts/HurmeGeometricSans4-Bold.woff) format('woff'), /* Pretty Modern Browsers */
+           url(fonts/HurmeGeometricSans4-Bold.svg) format('svg'); /* Legacy iOS */
+    /*font-stretch: condensed, ultra-condensed;*/
+    /*font-weight: normal, bold;*/
+  }
+	
+	@font-face {
+      font-family: 'Hurme Geometric Sans 3 Bold'; !important
+      src: url(fonts/HurmeGeometricSans3-Bold.eot) format('embedded-opentype'); /* IE9 Compat Modes */
+      src: url(fonts/HurmeGeometricSans3-Bold.otf) format('otf'),
+           url(fonts/HurmeGeometricSans3-Bold.ttf) format('truetype'), /* Safari, Android, iOS */			
+           url(fonts/HurmeGeometricSans3-Bold.woff) format('woff'), /* Pretty Modern Browsers */
+           url(fonts/HurmeGeometricSans3-Bold.svg) format('svg'); /* Legacy iOS */
+    /*font-stretch: condensed, ultra-condensed;*/
+    /*font-weight: normal, bold;*/
+  }
+
+ @font-face {
+      font-family: 'Rational TW Display Light'; !important
+      src: url(fonts/RationalTWText-Light.eot) format('embedded-opentype'); /* IE9 Compat Modes */
+      src: url(fonts/RationalTWText-Light.otf) format('otf'),
+           url(fonts/RationalTWText-Light.ttf) format('truetype'), /* Safari, Android, iOS */			
+           url(fonts/RationalTWText-Light.woff) format('woff'), /* Pretty Modern Browsers */
+           url(fonts/RationalTWText-Light.svg) format('svg'); /* Legacy iOS */
+    /* font-stretch: condensed, ultra-condensed; */
+    /* font-weight: normal, bold; */
+  }
+ 
+ @font-face {
+      font-family: 'Rational TW Display Medium'; !important
+      src: url(fonts/RationalTWText-Medium.eot) format('embedded-opentype'); /* IE9 Compat Modes */
+      src: url(fonts/RationalTWText-Medium.otf) format('otf'),
+           url(fonts/RationalTWText-Medium.ttf) format('truetype'), /* Safari, Android, iOS */			
+           url(fonts/RationalTWText-Medium.woff) format('woff'), /* Pretty Modern Browsers */
+           url(fonts/RationalTWText-Medium.svg) format('svg'); /* Legacy iOS */
+    /* font-stretch: condensed, ultra-condensed; */
+    /* font-weight: normal, bold; */
+  } 
+	
+/************************* END OF FONTS *************************/
+ 
+body {
+  font-family: 'Rational TW Display Light';
+  font-size: 12px;
+  letter-spacing: .25pt;
+  line-height: 200%;
+  color: black;
+  
+  
+  /* background: red; */
+}
+
+#container {
+  width: 50vw;
+  max-width: 1200px;
+  min-width: 871px; 	 
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	margin: auto;
+	
+	/* background: orange; */
+	
+}
+
+#container.index {	 
+  height: 100vh;
+}
+
+/* header has no flex ratio
+   it's not a flex box
+	 but only allows p.footer to be a flexbox
+	 for the purpose of centering text vertically
+*/
+
+#header {
+  height: 15vh;
+  min-height: 23px;
+	max-height: 300px;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	
+	padding: 0px 10px;
+
+  
+	/* background: blue; */
+}
+
+p.header {
+
+  display: flex;
+	
+	font-family: 'Hurme Geometric Sans 4 Bold';
+  font-size: 13px;
+  letter-spacing: 1.5pt;
+  text-transform: uppercase;
+	
+	
+	/* background-color: red; */
+}
+
+/************************* CONTENT INDEX *************************/
+
+#content {
+	/* background: teal;*/  
+}
+
+#content.index {
+	min-height: 265px;
+	/* max-height: 265px; */
+	
+	display: flex;
+  flex-direction: row;
+}
+
+#gutter.index {
+  display: flex;
+  flex: 0.5;
+	
+	min-width: 0px;
+
+}
+
+/* text justification
+   https://css-tricks.com/almanac/properties/t/text-justify/
+	 https://www.w3schools.com/cssref/css3_pr_text-justify.asp
+	 
+	 hyphenation
+	 https://css-tricks.com/almanac/properties/h/hyphenate/
+	 
+	 you must add lang="en" to p in your html
+*/
+
+#column.justify {
+  min-width: 273px;
+
+  flex: 3;
+
+	padding: 0px 10px;
+  	
+	hyphens: auto;
+  -moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	-webkit-hyphens: auto;
+	 
+	text-align: justify;
+	word-spacing: -2.5px;
+
+	text-justify: auto;
+	-moz-text-justify: auto;
+	-ms-text-justify: auto;
+	-o-text-justify: auto;
+	-webkit-text-justify: auto;
+   
+  /* background: magenta; */
+}
+
+#column.skills {
+  min-width: 133px;
+
+  
+  flex: 1;
+	
+	padding: 0px 10px;
+  
+  /* background: magenta; */
+}
+
+#column.portfolio {
+  min-width: 191px;
+
+  
+  flex: 3;
+ 
+	padding: 0px 10px;
+  
+  /* background: purple; */
+}
+
+#column.type {
+  min-width: 273px;
+	
+  
+  flex: 3;
+	
+	padding: 0px 10px;
+  
+	text-align: right;
+	
+  /* background: brown; */
+}
+
+p.listHeader {
+  letter-spacing: 0.5pt;
+  text-transform: uppercase; 
+}
+
+
+/************************* CONTENT AFTER INDEX *************************/
+
+#content.afterIndex {
+  /*
+	min-height: 265px;
+	max-height: 265px;
+	*/	
+	
+	overflow: hidden;
+	
+	/* background: white; */
+}
+
+#row.title {
+  height: 25px;
+	
+	padding-bottom: 3.5vh;
+	
+	text-align: center;
+	
+	/* background: purple; */
+}
+
+#row.threeColumns {	
+  display: flex;
+	flex-direction: row;
+	
+	padding: 2.5vh 0vh;
+	
+	/* background: red; */
+}
+
+#column.justify.Center {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#column.justify.Image {
+  display: flex;
+	align-items: center;
+	
+	padding: 0px;
+}
+
+#gutter.afterIndex {
+  display: flex;
+  flex: 3;
+	
+	/* background: pink; */
+}
+
+#row.fourColumns {	
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	margin: 0% -1%;
+	padding: 2vh 0vh;
+	
+	
+	/* background: violet; */
+}
+
+#flexbox.four {
+  flex: 22%;
+	padding: 1%;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+img.border {	
+	filter: brightness(95%);
+	-moz-filter: brightness(95%);
+	-ms-filter: brightness(95%);
+	-o-filter: brightness(95%);
+	-webkit-filter: brightness(95%);
+
+}
+
+img.full {	
+	padding: 2.5vh 0vh;
+}
+
+video {
+  display: flex;
+  width: 100%;
+	
+	padding-top: 2.5vh;
+}
+
+.divforbutton {
+  padding: 0.4vh 0vh;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+	/* background: green; */
+}
+
+#swissarmyButton, #beautyandthebeast1Button, #beautyandthebeast2Button {
+  height: 21px;
+  padding: 0;
+  border: none;
+	border-bottom: 1px solid black;
+  
+	letter-spacing: 0.5pt;
+  text-transform: uppercase; 
+	
+	/* background: red; */
+}
+
+#swissarmyButton:hover, #beautyandthebeast1Button:hover, #beautyandthebeast2Button:hover {
+  border-bottom: 1px solid black;
+	}
+	
+#swissarmyButton:focus, #beautyandthebeast1Button:focus, #beautyandthebeast2Button:focus {
+  outline:0;
+}
+
+.backToHome{
+	width:33px; 
+	height:21px;
+	
+	position:fixed;
+	z-index: 99;
+	top: 9px;
+	right: 9px;
+		
+  border-bottom: 1px solid black;
+	
+	letter-spacing: 0.5pt;
+	text-align: center;
+  text-transform: uppercase;
+	
+	/* background: red; */
+}
+
+.backToHome:hover{
+	text-decoration:none;
+}
+
+.scrollToTop{
+	width:26px; 
+	height:21px;
+	
+	position:fixed;
+	z-index: 99;
+	bottom: 9px;
+	right: 9px;
+	
+	display: none;
+	
+  border-bottom: 1px solid black;
+	
+	letter-spacing: 0.5pt;
+	text-align: center;
+  text-transform: uppercase;
+	
+	/* background: red; */
+}
+
+.scrollToTop:hover{
+	text-decoration:none;
+}
+
+/************************* FOOTER *************************/
+
+/* footer has no flex ratio
+   it's not a flex box
+	 but only allows p.footer to be a flexbox
+	 for the purpose of centering text vertically
+*/
+
+#footer {
+  height: 15vh;
+  min-height: 23px;
+	max-height: 300px;	
+	
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	
+	
+	padding: 0px 10px;
+	
+	
+  /* background: blue; */
+}
+
+/* underline below the text
+   https://css-tricks.com/almanac/properties/t/text-underline-position/
+	 https://css-tricks.com/styling-underlines-web/
+*/
+
+a {
+  padding-bottom: 2px;
+	
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+  border-bottom: 1px solid black;
+}
+
+p.footer {	
+	display: flex;
+	/* background-color: red; */
+}
+
+.bold {
+
+  font-family: 'Hurme Geometric Sans 3 Bold';
+  font-size: 13px;
+  letter-spacing: 1.5pt;
+
+}
+
+a.email {
+  display: inline-block;
+  height: 21px;
+  border-bottom: 1px solid black;
+	
+	/*
+	text-underline-position: under;
+	-moz-text-underline-position: under;
+	-ms-text-underline-position: under;
+	-o-text-underline-position: under;
+	-webkit-text-underline-position: under;
+	*/
+	
+}
+
+/************************* RESIZING THE LAYOUT *************************/
+
+@media (max-width: 885px) {
+
+/****** INDEX ******/
+
+#container {
+  min-width: 250px;
+  width: 100%;
+	
+}
+
+#content.index {
+  min-height: 600px; /* these values were set for desktop window, they must also be set for mobile window, otherwise content will not be centered vertically */
+
+  flex-direction: column;
+	
+	padding: 0% 15%;
+}
+
+
+#column {
+  display: block;
+}
+
+#column.type {
+  display: none;
+}
+
+/****** PAGE 2 ******/
+
+#flexbox.four {
+  flex: 44%;
+	
+	/* background: teal; */
+}
+
+}
+
+/************************* HYPHENATION SUPPORT FOR MOZILLA FIREFOX *************************/
+
